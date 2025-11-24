@@ -1,7 +1,7 @@
 from messages import Messages
 from sentiment import sentimentanalyze
 from wrapper import bot_prompt
-from summarize import summarize
+from summarize import summarize, overall_sentiment
 
 def main():
     print('T: Hello! My name is T! How may I help you?')
@@ -27,26 +27,14 @@ def main():
         msgs.botmessage(bot_reply)
     
     print("\n\nConversation Ended\n\n")
-    overall_sentiment(msgs)
     
-def overall_sentiment(msgs):
-    sents = msgs.usersentiment
-
-    pos = sents.count("POSITIVE")
-    neg = sents.count("NEGATIVE")
-
-    if pos > neg:
-        ovr = "POSITIVE"
-    elif neg > pos:
-        ovr = "NEGATIVE"
-    else:
-        ovr = "NEUTRAL"
-
+    ovr = overall_sentiment(msgs)
     summary = summarize(msgs.sendtomodel())
 
     print("Overall Conversation Sentiment: ",ovr)
     print("\n")
     print("Summary of this conversation: \n",summary)
+
 
 if __name__ == "__main__":
     main()
