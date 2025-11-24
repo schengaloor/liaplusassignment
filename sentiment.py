@@ -1,5 +1,4 @@
 import torch
-import torch.nn.functional as F
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 modelname = "distilbert/distilbert-base-uncased-finetuned-sst-2-english"
