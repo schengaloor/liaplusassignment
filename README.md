@@ -25,6 +25,34 @@
 
 ### 3. Technologies Used
    - Python 3.10.9
-   - HuggingFace Transformers - [DistillBERT](https://huggingface.co/docs/transformers/en/model_doc/distilbert)
+   - HuggingFace Transformers - [DistillBERT SST-2](https://huggingface.co/docs/transformers/en/model_doc/distilbert)
    - [Grok 4.1 Fast using openrouter API](https://openrouter.ai/x-ai/grok-4.1-fast:free)
    - [Streamlit](https://streamlit.io/)
+
+### 4. Sentiment Analysis Logic
+
+   - Transformer-based sentiment classifier to evaluate user expressions.
+   - DistilBERT SS-2, implemented from HuggingFace Transformers library for binary sentiment classification.
+   - Messages are tokenized through the tokenizer and passed through model to obtain class logits.
+   - The highest-scoring label is returned, which are then used to compute the overall emotional scale of the conversation.
+   - Conversation level sentiment can be derived from aggregating message-level outputs. Thus, I implemented message level logic first, followed by the conversation level logic.
+
+   <ins>Tier 1</ins>
+   - After the conversation ends, all stored user message sentiments are collected.
+   - These labels are produced by the DistilBERT sentiment analyzer.
+   - The system counts how many user messages were POSITIVE vs NEGATIVE.
+      - More POSITIVE -> Overall Sentiment: POSITIVE
+      - More NEGATIVE -> Overall Sentiment: NEGATIVE
+      - Equal → Overall Sentiment: NEUTRAL
+    
+   <ins>Tier 2</ins>
+   - Messages are passed through the DistilBERT sentiment analyzer.
+   - The model outputs either a POSITIVE or NEGATIVE label.
+   - Sentiment label is displayed next to each user message.
+   - These labels are stored and used to obtain conversation sentiment logic as explained in Tier 1.
+
+### 5. Backup Chatbot Logic
+   - In case connection to API cannot be made, or there are issues with the API key, a backup chat logic is in place.
+   - This is a fully offline, rule-based backup chatbot.
+   - Error handling is done in case of LLM failure automatically.
+   - Aside from the actual chat logic, an offline backup summarizer is also present.
