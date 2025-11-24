@@ -1,14 +1,14 @@
-#LiaPlus AI - AI Engineer Intern Assignment
-Chatbot with Sentiment Analysis
+# LiaPlus AI - AI Engineer Intern Assignment
+## Chatbot with Sentiment Analysis
 
-###1. Overview:
+### 1. Overview:
    - LLM-based chatbot
    - Sentiment analysis using transformers
    - Simple streamlit frontend
    - Conversation summarization
    - Backup offline chatbot in case of LLM unavailability
 
-###2. How to setup and use
+### 2. How to setup and use
 
    A. Install all required packages using: `pip install -r requirements.txt`
 
@@ -23,7 +23,7 @@ Chatbot with Sentiment Analysis
    - OR
    - run `main.py` on terminal
 
-###3. Technologies Used
+### 3. Technologies Used
    - Python 3.10.9
    - HuggingFace Transformers - [DistillBERT](https://huggingface.co/docs/transformers/en/model_doc/distilbert)
    - [Grok 4.1 Fast using openrouter API](https://openrouter.ai/x-ai/grok-4.1-fast:free)
