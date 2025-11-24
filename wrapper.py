@@ -3,7 +3,7 @@ import json
 import os
 from backup import backup_chatbot
 
-api_key = os.getenv("OPENROUTER_AI_KEY")
+api_key = os.getenv("OPENROUTER_API_KEY")
 
 def bot_prompt(history):
     if not api_key:
