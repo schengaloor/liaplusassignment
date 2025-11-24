@@ -2,11 +2,13 @@
 ## Chatbot with Sentiment Analysis
 
 ### 1. Overview:
-   - LLM-based chatbot
-   - Sentiment analysis using transformers
-   - Simple streamlit frontend
-   - Conversation summarization
-   - Backup offline chatbot in case of LLM unavailability
+   - LLM based chatbot (Grok 4.1 Fast via OpenRouter)
+   - Transformer based sentiment analysis using DistilBERT SST-2
+   - Conversation level sentiment analysis (Tier 1)
+   - Per-message sentiment labeling (Tier 2)
+   - LLM based conversation summarization
+   - Backup offline chatbot (rule-based)
+   - Streamlit UI
 
 ### 2. How to setup and use
 
@@ -19,7 +21,7 @@
    - Restart CMD, and enter `%OPENROUTER_API_KEY%`, you're all set if you see your API key.
   
    C. Run the chatbot
-   - enter `streamlit run front.py` in terminal
+   - enter `streamlit run frontend.py` in terminal
    - OR
    - run `main.py` on terminal
 
@@ -56,3 +58,8 @@
    - This is a fully offline, rule-based backup chatbot.
    - Error handling is done in case of LLM failure automatically.
    - Aside from the actual chat logic, an offline backup summarizer is also present.
+
+### 6. Other Mentions
+   - I was not aware about how to implement tests and testing, and was not getting desired results when I tried.
+   - Wasn't sure if a UI was required, but added a simple one anyway.
+   - API key is hidden and added as environment variable to prevent misuse.

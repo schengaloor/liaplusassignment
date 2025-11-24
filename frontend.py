@@ -13,6 +13,7 @@ if "msgs" not in st.session_state:
 if "chat" not in st.session_state:
     st.session_state.chat = []
 
+st.write("T: Hello! My name is T, your virtual assistant!")
 inp = st.text_input("Enter:","")
 
 if st.button("Send"):
